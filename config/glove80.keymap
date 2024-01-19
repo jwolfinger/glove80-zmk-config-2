@@ -47,6 +47,26 @@
             #binding-cells = <0>;
             bindings = <&mo 2>, <&to 2>;
         };
+
+        layer_sym_sticky: layer_sym_sticky {
+            compatible = "zmk,behavior-sticky-key";
+            label = "LAYER_SYM_STICKY";
+            bindings = <&layer_sym>;
+            #binding-cells = <1>;
+            release-after-ms = <2000>;
+            quick-release;
+            ignore-modifiers;
+        };
+
+        layer_nav_sticky: layer_nav_sticky {
+            compatible = "zmk,behavior-sticky-key";
+            label = "LAYER_NAV_STICKY";
+            bindings = <&layer_nav>;
+            #binding-cells = <1>;
+            release-after-ms = <2000>;
+            ignore-modifiers;
+            quick-release;
+        };
     };
 
     macros {
@@ -99,12 +119,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1      &kp F2    &kp F3   &kp F4    &kp F5                                                                                                         &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
-&kp EQUAL   &kp N1    &kp N2   &kp N3    &kp N4     &kp N5                                                                                      &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB     &kp Q     &kp W    &kp E     &kp R      &kp T                                                                                       &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
-&kp ESC     &kp A     &kp S    &kp D     &kp F      &kp G                                                                                       &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&kp GRAVE   &kp Z     &kp X    &kp C     &kp V      &kp B   &layer_nav      &kp LCTRL      &kp ESC     &kp ESCAPE        &kp RCTRL  &layer_sym  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
-&magic 5 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp LEFT_SHIFT  &kp BACKSPACE  &kp DELETE  &kp SINGLE_QUOTE  &kp ENTER  &kp SPACE           &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
+&kp F1      &kp F2    &kp F3   &kp F4    &kp F5                                                                                                                       &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
+&kp EQUAL   &kp N1    &kp N2   &kp N3    &kp N4     &kp N5                                                                                                    &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB     &kp Q     &kp W    &kp E     &kp R      &kp T                                                                                                     &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
+&kp ESC     &kp A     &kp S    &kp D     &kp F      &kp G                                                                                                     &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&kp GRAVE   &kp Z     &kp X    &kp C     &kp V      &kp B   &layer_nav_sticky 0  &kp LCTRL      &kp ESC     &kp ESCAPE        &kp RCTRL  &layer_sym_sticky 0  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
+&magic 5 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp LEFT_SHIFT       &kp BACKSPACE  &kp DELETE  &kp SINGLE_QUOTE  &kp ENTER  &kp SPACE                    &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
             >;
         };
 
